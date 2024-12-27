@@ -53,10 +53,7 @@ public class SnapshotHolder {
       listeners = ImmutableList.copyOf(this.listeners);
     }
     for (QuerySyncProjectListener l : listeners) {
-      BlazeExecutor.getInstance().submit(() -> {
-          l.onNewProjectSnapshot(context, newInstance);
-          return null;
-      });
+      l.onNewProjectSnapshot(context, newInstance);
     }
   }
 
